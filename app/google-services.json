@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "118273152027",
+    "project_id": "another-sleep-tracker",
+    "storage_bucket": "another-sleep-tracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118273152027:android:adba2e62aea2a089f214be",
+        "android_client_info": {
+          "package_name": "com.tiencow.anothersleeptracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB79ZRnRQw1R5a-BdkrSh_4ppJOY72e_TY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
