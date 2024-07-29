@@ -32,13 +32,13 @@ class DataStoreHelper @Inject constructor(
     suspend fun getStartTime(): Long {
         return dataStore.data.map { preferences ->
             preferences[START_TIME_KEY] ?: 0L
-        }.first() // get start time from DataStore
+        }.first()
     }
 
     suspend fun getIsRunning(): Boolean {
         return dataStore.data.map { preferences ->
             preferences[IS_RUNNING_KEY] ?: false
-        }.first() // get isRunning from DataStore
+        }.first()
     }
 
     suspend fun reset() {

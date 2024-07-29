@@ -1,11 +1,8 @@
-import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
-    id("com.google.gms.google-services")
 }
 
 android {
@@ -14,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.tiencow.anothersleeptracker"
-        minSdk = 26
+        minSdk = 31
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -64,7 +61,6 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.androidx.hilt.common)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -95,6 +91,8 @@ dependencies {
     implementation("com.google.accompanist:accompanist-permissions:0.31.1-alpha")
     implementation("com.google.accompanist:accompanist-pager:0.28.0")
     implementation("co.yml:ycharts:2.1.0")
+    implementation("androidx.core:core-splashscreen:1.0.0")
+    implementation("com.google.android.material:material:1.5.0")
 }
 
 kapt {

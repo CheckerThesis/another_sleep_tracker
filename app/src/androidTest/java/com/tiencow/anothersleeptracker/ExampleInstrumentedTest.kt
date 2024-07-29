@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.example.anothersleeptracker", appContext.packageName)
+        assertEquals("com.tiencow.anothersleeptracker", appContext.packageName)
     }
 }

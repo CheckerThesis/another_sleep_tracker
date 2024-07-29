@@ -2,6 +2,7 @@
 
 package com.tiencow.anothersleeptracker.navigator
 
+import android.graphics.Color.rgb
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -67,7 +68,9 @@ fun PreviousLogsPage(
     sleepDurationViewModel: SleepDurationViewModel = hiltViewModel()
 ) {
     val timeEntries by viewModel.timeEntries.collectAsState(initial = emptyList())
+    println("PreviousLogs: $timeEntries")
     val wantedTime by sleepDurationViewModel.wantedSleepTime.collectAsState()
+
 
     LazyColumn {
         items(
@@ -83,12 +86,13 @@ fun PreviousLogsPage(
             )
         }
     }
+
 }
 
 @Composable
 fun Entry(timeEntry: TimeEntry, wantedTime: Long) {
-        val color: Color = if (timeEntry.duration > Duration.ofMinutes(wantedTime)) {
-        Color.Green
+    val color: Color = if (timeEntry.duration > Duration.ofMinutes(wantedTime)) {
+        Color(rgb(90, 186, 17))
     } else {
         Color.Red
     }
@@ -121,7 +125,7 @@ fun Entry(timeEntry: TimeEntry, wantedTime: Long) {
                             modifier = Modifier.padding(horizontal = 5.dp),
                         )
                     }
-                    Column{
+                    Column {
                         Text(formatDate(timeEntry.endDateTime), fontSize = 15.sp)
                         Text(formatDate(timeEntry.startDateTime), fontSize = 15.sp)
                     }
@@ -159,6 +163,7 @@ fun EntryItem(
                     Toast.makeText(context, "Item deleted", Toast.LENGTH_SHORT).show()
                     true
                 }
+
                 else -> false
             }
         },
@@ -196,7 +201,7 @@ fun DeleteBackground(dismissState: SwipeToDismissBoxState) {
             .padding(12.dp, 8.dp),
         horizontalArrangement = Arrangement.End,
         verticalAlignment = Alignment.CenterVertically
-    )  {
+    ) {
         Icon(
             imageVector = Icons.Default.Delete,
             contentDescription = "Delete",
