@@ -83,10 +83,10 @@ class ReminderNotificationReceiver : BroadcastReceiver() {
                     )
                         .setContentTitle("Sleep Tracker Reminder")
                         .setContentText(if (isRunning) "Stop tracking your sleep?" else "Start tracking your sleep?")
-                        .setSmallIcon(R.drawable.ic_launcher_foreground)
+                        .setSmallIcon(R.drawable.ic_sleep_reminder)
                         .setContentIntent(activityPendingIntent)
                         .addAction(
-                            R.drawable.ic_launcher_foreground,
+                            R.drawable.ic_sleep_reminder,
                             if (isRunning) "Stop" else "Start",
                             actionPendingIntent
                         )
