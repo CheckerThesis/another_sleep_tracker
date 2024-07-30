@@ -64,12 +64,6 @@ fun HomePage(
         verticalArrangement = Arrangement.Top,
         modifier = Modifier.fillMaxSize()
     ) {
-//        Text(
-//            "Average duration of sleep: $averageHours"
-//        )
-//        Graph(
-//            viewModel = viewModel
-//        )
         Spacer(modifier = Modifier.height(7.dp))
         Box {
             Graph(

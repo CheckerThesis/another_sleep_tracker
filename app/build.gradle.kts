@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    id("com.mikepenz.aboutlibraries.plugin")
 }
 
 android {
@@ -93,6 +94,9 @@ dependencies {
     implementation("co.yml:ycharts:2.1.0")
     implementation("androidx.core:core-splashscreen:1.0.0")
     implementation("com.google.android.material:material:1.5.0")
+
+    implementation("com.mikepenz:aboutlibraries-core:11.2.2")
+    implementation("com.mikepenz:aboutlibraries-compose-m3:11.2.2")
 }
 
 kapt {

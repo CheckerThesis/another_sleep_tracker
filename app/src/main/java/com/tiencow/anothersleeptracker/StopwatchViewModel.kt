@@ -25,7 +25,6 @@ import javax.inject.Inject
 class StopwatchViewModel @Inject constructor(
     private val timeEntryDao: TimeEntryDao,
     private val dataStoreHelper: DataStoreHelper,
-    val notificationService: ReminderNotificationService
 ) : ViewModel() {
     private val _state = MutableStateFlow<StopwatchState>(StopwatchState.Idle) // current state of Stopwatch
     val state: StateFlow<StopwatchState> = _state.asStateFlow() // exposed state as read-only for observers

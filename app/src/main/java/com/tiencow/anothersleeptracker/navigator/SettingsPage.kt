@@ -42,6 +42,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import kotlin.time.Duration
 import androidx.compose.material3.TimeInput
+import androidx.navigation.NavController
+import com.mikepenz.aboutlibraries.ui.compose.m3.Libraries
+import com.mikepenz.aboutlibraries.ui.compose.m3.LibrariesContainer
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -86,6 +89,7 @@ class SettingsViewModel @Inject constructor(
 @Composable
 fun SettingsPage(
     viewModel: SettingsViewModel = hiltViewModel(),
+    navController: NavController
 ) {
     var selectedTime by remember { mutableStateOf("") }
     val context = LocalContext.current
@@ -124,6 +128,10 @@ fun SettingsPage(
             "${wantedTime / 60} hours ${wantedTime % 60} minutes",
             { Icons.Default.Timer },
             { showDurationPicker = true }
+        )
+        SettingsItem(
+            "About",
+            onClick = {navController.navigate(Screens.About.route)}
         )
     }
 

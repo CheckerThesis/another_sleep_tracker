@@ -46,7 +46,7 @@ fun Navigation() {
 
     Scaffold(
         topBar = {
-            if (currentRoute != Screens.Settings.route) {
+            if (currentRoute == Screens.Stopwatch.route || currentRoute == Screens.PreviousLogs.route) {
                 TopAppBar(
                     modifier = Modifier.fillMaxWidth(),
                     colors = topAppBarColors(
@@ -66,6 +66,15 @@ fun Navigation() {
                         }
                     }
                 )
+            } else if (currentRoute == Screens.About.route) {
+                TopAppBar(
+                    title = { Text("About") },
+                    navigationIcon = {
+                        IconButton(onClick = {navController.navigateUp()}) {
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        }
+                    }
+                )
             } else if (currentRoute == Screens.Settings.route) {
                 TopAppBar(
                     title = { Text("Settings") },
@@ -78,7 +87,7 @@ fun Navigation() {
             }
         },
         bottomBar = {
-            if (currentRoute != Screens.Settings.route) {
+            if (currentRoute == Screens.Stopwatch.route || currentRoute == Screens.PreviousLogs.route) {
                 NavigationBar(
                     modifier = Modifier.fillMaxWidth(),
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
@@ -112,10 +121,10 @@ fun Navigation() {
                         icon = {
                             Icon(
                                 Icons.AutoMirrored.Filled.List,
-                                contentDescription = "List"
+                                contentDescription = "Previous Sleeps"
                             )
                         },
-                        label = { Text("List") },
+                        label = { Text("Previous Sleeps") },
                     )
                 }
             }
@@ -150,7 +159,10 @@ fun Navigation() {
                 PreviousLogsPage(viewModel = viewModel)
             }
             composable(Screens.Settings.route) {
-                SettingsPage()
+                SettingsPage(navController = navController)
+            }
+            composable(Screens.About.route) {
+                AboutScreen()
             }
         }
     }

@@ -2,6 +2,7 @@
 
 package com.tiencow.anothersleeptracker.navigator
 
+import android.content.res.Configuration
 import android.graphics.Color.rgb
 import android.widget.Toast
 import androidx.compose.foundation.background
@@ -13,6 +14,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
@@ -43,6 +47,7 @@ import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -71,22 +76,44 @@ fun PreviousLogsPage(
     println("PreviousLogs: $timeEntries")
     val wantedTime by sleepDurationViewModel.wantedSleepTime.collectAsState()
 
+    val configuration = LocalConfiguration.current
 
-    LazyColumn {
-        items(
-            items = timeEntries,
-            key = { it.id } // Assuming TimeEntry has an 'id' property
-        ) { timeEntry ->
-            EntryItem(
-                timeEntry = timeEntry,
-                wantedTime = wantedTime,
-                onRemove = { removedTimeEntry ->
-                    viewModel.onEvent(TimeEntryEvent.DeleteTimeEntry(removedTimeEntry))
+    when (configuration.orientation) {
+        Configuration.ORIENTATION_PORTRAIT -> {
+            LazyColumn {
+                items(
+                    items = timeEntries,
+                    key = { it.id }
+                ) { timeEntry ->
+                    EntryItem(
+                        timeEntry = timeEntry,
+                        wantedTime = wantedTime,
+                        onRemove = { removedTimeEntry ->
+                            viewModel.onEvent(TimeEntryEvent.DeleteTimeEntry(removedTimeEntry))
+                        }
+                    )
                 }
-            )
+            }
+        } else -> {
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
+                modifier = Modifier.fillMaxSize(),
+            ) {
+                items(
+                    items = timeEntries,
+                    key = { it.id }
+                ) { timeEntry ->
+                    EntryItem(
+                        timeEntry = timeEntry,
+                        wantedTime = wantedTime,
+                        onRemove = { removedTimeEntry ->
+                            viewModel.onEvent(TimeEntryEvent.DeleteTimeEntry(removedTimeEntry))
+                        }
+                    )
+                }
+            }
         }
     }
-
 }
 
 @Composable
