@@ -1,3 +1,9 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package com.tiencow.anothersleeptracker.data_store
 
 import androidx.datastore.core.DataStore
@@ -13,9 +19,9 @@ import javax.inject.Inject
 class DataStoreHelper @Inject constructor(
     private val dataStore: DataStore<Preferences>
 ) {
-    private val START_TIME_KEY = longPreferencesKey("start_time") // store key in DataStore
-    private val IS_RUNNING_KEY = booleanPreferencesKey("is_running") // store key in DataStore
-    private val DURATION_KEY = longPreferencesKey("duration") // store key in DataStore
+    private val START_TIME_KEY = longPreferencesKey("start_time")
+    private val IS_RUNNING_KEY = booleanPreferencesKey("is_running")
+    private val DURATION_KEY = longPreferencesKey("duration")
     private val HAS_SEEN_STARTUP_PAGE_KEY = booleanPreferencesKey("has_seen_startup_page")
 
     suspend fun saveStartTime(startTime: Long) {
@@ -77,11 +83,5 @@ class DataStoreHelper @Inject constructor(
         return dataStore.data.map { preferences ->
             preferences[HAS_SEEN_STARTUP_PAGE_KEY] ?: false
         }.first()
-    }
-
-    fun getHasSeenStartupPageFlow(): Flow<Boolean> {
-        return dataStore.data.map { preferences ->
-            preferences[HAS_SEEN_STARTUP_PAGE_KEY] ?: false
-        }
     }
 }

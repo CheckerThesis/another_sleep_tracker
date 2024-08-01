@@ -1,3 +1,9 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package com.tiencow.anothersleeptracker.notification
 
 import android.app.NotificationChannel
@@ -9,10 +15,7 @@ import android.content.BroadcastReceiver
 import androidx.core.app.NotificationCompat
 import com.tiencow.anothersleeptracker.MainActivity
 import com.tiencow.anothersleeptracker.R
-import com.tiencow.anothersleeptracker.StopwatchController
 import com.tiencow.anothersleeptracker.data_store.DataStoreHelper
-import com.tiencow.anothersleeptracker.navigator.SettingsViewModel
-import com.tiencow.anothersleeptracker.notification.ReminderNotificationService.Companion.REMINDER_CHANNEL_ID
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

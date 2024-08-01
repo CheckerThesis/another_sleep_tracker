@@ -1,0 +1,6 @@
+Simple sleep tracker made in Kotlin and Jetpack Compose that doesn't drain battery life in the background
+
+Features:
+- Reminder notification
+- Graph view
+- Material You

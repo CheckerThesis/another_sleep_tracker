@@ -1,3 +1,9 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package com.tiencow.anothersleeptracker
 
 import androidx.lifecycle.ViewModel
@@ -26,8 +32,8 @@ class StopwatchViewModel @Inject constructor(
     private val timeEntryDao: TimeEntryDao,
     private val dataStoreHelper: DataStoreHelper,
 ) : ViewModel() {
-    private val _state = MutableStateFlow<StopwatchState>(StopwatchState.Idle) // current state of Stopwatch
-    val state: StateFlow<StopwatchState> = _state.asStateFlow() // exposed state as read-only for observers
+    private val _state = MutableStateFlow<StopwatchState>(StopwatchState.Idle)
+//    val state: StateFlow<StopwatchState> = _state.asStateFlow()
 
     val isRunning: StateFlow<Boolean> = dataStoreHelper.getIsRunningFlow()
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), false)
@@ -60,7 +66,7 @@ class StopwatchViewModel @Inject constructor(
                 val currentTime = System.currentTimeMillis()
                 val elapsedTime = currentTime - startTime
                 _time.value = formatTime(elapsedTime)
-                delay(1000) // Update every second
+                delay(1000)
             }
         }
     }

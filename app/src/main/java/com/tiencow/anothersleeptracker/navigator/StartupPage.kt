@@ -1,3 +1,9 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package com.tiencow.anothersleeptracker.navigator
 
 import androidx.compose.foundation.layout.Arrangement
@@ -37,7 +43,6 @@ import androidx.compose.runtime.*
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun PermissionWrapper(dataStoreHelper: DataStoreHelper) {
     var hasSeenStartupPage by remember { mutableStateOf(false) }
