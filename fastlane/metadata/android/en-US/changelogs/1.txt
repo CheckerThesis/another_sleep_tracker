@@ -1,0 +1,11 @@
+Features:
+- Reminder notification
+- Graph view
+- Material You
+
+Known problems:
+- Time picker for settings reminder notification isn't Material You
+- Delete swipe animation is buggy
+- Graph view on certain screens is misproportioned
+- Startup screen isn't centered
+- App startup animation doesn't match theme

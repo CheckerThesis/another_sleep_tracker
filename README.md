@@ -4,21 +4,21 @@
 
 Another Sleep Tracker is a simple stopwatch-based sleep tracker for Android.
 
-[<img src="/fastlane/metadata/android/en-US/phoneScreenshots/1.jpg"
+[<img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/1.jpg"
   alt="Home screen"
-  height="256">](/fastlane/metadata/android/en-US/phoneScreenshots/1.jpg)
-[<img src="/fastlane/metadata/android/en-US/phoneScreenshots/2.jpg"
+  height="256">](/fastlane/metadata/android/en-US/images/phoneScreenshots/1.jpg)
+[<img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/2.jpg"
   alt="Previous sleeps screen"
-  height="256">](/fastlane/metadata/android/en-US/phoneScreenshots/2.jpg)
-[<img src="/fastlane/metadata/android/en-US/phoneScreenshots/3.jpg"
+  height="256">](/fastlane/metadata/android/en-US/images/phoneScreenshots/2.jpg)
+[<img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/3.jpg"
   alt="Settings screen"
-  height="256">](/fastlane/metadata/android/en-US/phoneScreenshots/3.jpg)
-[<img src="/fastlane/metadata/android/en-US/phoneScreenshots/4.jpg"
+  height="256">](/fastlane/metadata/android/en-US/images/phoneScreenshots/3.jpg)
+[<img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/4.jpg"
   alt="Home screen dark mode"
-  height="256">](/fastlane/metadata/android/en-US/phoneScreenshots/4.jpg)
-[<img src="/fastlane/metadata/android/en-US/phoneScreenshots/5.jpg"
+  height="256">](/fastlane/metadata/android/en-US/images/phoneScreenshots/4.jpg)
+[<img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/5.jpg"
   alt="Previous sleeps screen dark mode"
-  height="256">](/fastlane/metadata/android/en-US/phoneScreenshots/5.jpg)
+  height="256">](/fastlane/metadata/android/en-US/images/phoneScreenshots/5.jpg)
 
 ## Features
 - Reminder notification
