@@ -30,7 +30,13 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+            signingConfig = null
+            isCrunchPngs = false
         }
+    }
+    dependenciesInfo {
+        includeInApk = false
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -97,6 +103,8 @@ dependencies {
 
     implementation("com.mikepenz:aboutlibraries-core:11.2.2")
     implementation("com.mikepenz:aboutlibraries-compose-m3:11.2.2")
+
+
 }
 
 kapt {
