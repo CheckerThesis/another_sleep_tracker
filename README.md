@@ -24,12 +24,11 @@ Another Sleep Tracker is a simple stopwatch-based sleep tracker for Android.
 - Reminder notification
 - Graph view
 - Material You
-
 ## Installing
 Go to the "Releases" menu, click the latest version, then download the .apk.
-
 ## Permissions
 Another Sleep Tracker has an optional notification permission for sending reminder notifications.
-
+## Privacy
+We don't take or track any information, the app does not connect to the internet.
 ## Licenses
 Another Sleep Tracker is licensed under MPL 2.0.
