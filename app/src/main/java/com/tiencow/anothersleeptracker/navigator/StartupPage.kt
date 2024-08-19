@@ -137,6 +137,13 @@ fun StartupPage(
                 .padding(start = 15.dp)
         )
         Spacer(modifier = Modifier.height(17.dp))
+        Text(
+            "- You may need to disable battery optimizations for background notifications",
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 15.dp)
+        )
+        Spacer(modifier = Modifier.height(17.dp))
         Button(
             onClick = onContinue,
             modifier = Modifier.padding(),
