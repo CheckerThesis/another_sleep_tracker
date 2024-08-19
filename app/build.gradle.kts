@@ -16,14 +16,11 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-        resourceConfigurations += listOf("en")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
-
-        buildConfigField("String", "BUILD_TIME", "\"2023-01-01T00:00:00Z\"")
     }
 
     buildTypes {
@@ -33,8 +30,6 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = null
-            isCrunchPngs = false
         }
     }
 
@@ -45,16 +40,10 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
-        freeCompilerArgs += listOf(
-            "-Xno-param-assertions",
-            "-Xno-call-assertions",
-            "-Xno-receiver-assertions"
-        )
     }
 
     buildFeatures {
         compose = true
-        buildConfig = true
     }
 
     composeOptions {
@@ -66,6 +55,10 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+}
+
+aboutLibraries {
+    excludeFields = arrayOf("generated")
 }
 
 dependencies {
@@ -113,37 +106,9 @@ dependencies {
 
     implementation("com.mikepenz:aboutlibraries-core:11.2.2")
     implementation("com.mikepenz:aboutlibraries-compose-m3:11.2.2")
+
 }
 
 kapt {
     correctErrorTypes = true
-}
-
-tasks.withType<AbstractArchiveTask>().configureEach {
-    isPreserveFileTimestamps = false
-    isReproducibleFileOrder = true
-}
-
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-    kotlinOptions {
-        freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
-    }
-}
-
-tasks.register("generateConstantBuildTime") {
-    doLast {
-        val buildTime = "2023-01-01T00:00:00Z"
-        val outputDir = file("$buildDir/generated/source/buildConfig/${android.defaultConfig.applicationId}")
-        outputDir.mkdirs()
-        file("$outputDir/BuildConfig.java").writeText("""
-            public final class BuildConfig {
-                public static final String BUILD_TIME = "$buildTime";
-                public static final String GIT_TAG = "v1.0";
-            }
-        """.trimIndent())
-    }
-}
-
-tasks.named("preBuild") {
-    dependsOn("generateConstantBuildTime")
 }
