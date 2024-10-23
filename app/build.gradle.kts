@@ -10,6 +10,13 @@ android {
     namespace = "com.tiencow.anothersleeptracker"
     compileSdk = 34
 
+    dependenciesInfo {
+        // Disables dependency metadata when building APKs.
+        includeInApk = false
+        // Disables dependency metadata when building Android App Bundles.
+        includeInBundle = false
+    }
+
     defaultConfig {
         applicationId = "com.tiencow.anothersleeptracker"
         minSdk = 31
